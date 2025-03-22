@@ -12,11 +12,14 @@ def count_characters(text: str) -> dict:
     
     return dict_of_chars
 
+def sort_on(d):
+    return d["count"]
+
 def sorted_list(char_dict: dict) -> list:
     lst = []
-    for key in char_dict.keys():
+    for key in char_dict:
         lst.append({"character": key, "count": char_dict[key]})
     
-    lst.sort(key = lambda k : k["count"], reverse=True)
+    lst.sort(reverse=True, key=sort_on)
     
     return lst
